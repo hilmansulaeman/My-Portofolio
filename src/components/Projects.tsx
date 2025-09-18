@@ -3,7 +3,11 @@ import { motion } from 'motion/react';
 import { ProjectCard } from './ProjectCard';
 import { ProjectDetail } from './ProjectDetail';
 
-export function Projects() {
+interface ProjectsProps {
+  onViewAllProjects?: () => void;
+}
+
+export function Projects({ onViewAllProjects }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const projects = [
@@ -107,17 +111,22 @@ export function Projects() {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <button className="bg-gray-900 text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 font-[Inter]">
-              View All Projects
-            </button>
-          </motion.div>
+          {onViewAllProjects && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mt-16"
+            >
+              <button 
+                onClick={onViewAllProjects}
+                className="bg-gray-900 text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 font-[Inter]"
+              >
+                View All Projects
+              </button>
+            </motion.div>
+          )}
         </div>
       </section>
 

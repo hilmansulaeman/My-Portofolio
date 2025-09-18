@@ -1,5 +1,11 @@
-# Hi, I'm Hilman Sulaeman 👋  
-**UI/UX Designer & Frontend Developer**
 
-Passionate about crafting intuitive interfaces and clean code. 
-I design and build user-friendly digital experiences through UI/UX design and frontend development.  
+  # Portfolio Website Design
+
+  This is a code bundle for Portfolio Website Design. The original project is available at https://www.figma.com/design/uA7B1Ur51Cvt5lTu7aESPd/Portfolio-Website-Design.
+
+  ## Running the code
+
+  Run `npm i` to install the dependencies.
+
+  Run `npm run dev` to start the development server.
+  

@@ -194,3 +194,19 @@
 html {
   font-size: var(--font-size);
 }
+
+/* Background Animation */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  33% { 
+    transform: translateY(-10px) rotate(0.5deg);
+    opacity: 0.25;
+  }
+  66% { 
+    transform: translateY(5px) rotate(-0.5deg);
+    opacity: 0.15;
+  }
+}

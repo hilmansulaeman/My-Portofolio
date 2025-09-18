@@ -91,9 +91,7 @@ export function Contact() {
               <h4 className="font-medium text-gray-900">Follow me on</h4>
               <div className="flex gap-4">
                 <a
-                  href="https://www.linkedin.com/in/hilman-sulaeman/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#"
                   className="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:border-[#ff6b35] hover:text-[#ff6b35] transition-all duration-300 hover:-translate-y-1"
                 >
                   <Linkedin className="w-5 h-5" />

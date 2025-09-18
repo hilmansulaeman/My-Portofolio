@@ -2,12 +2,48 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 
-export function Header() {
+interface HeaderProps {
+  currentPage: 'portfolio' | 'all-projects';
+  onNavigate: (page: 'portfolio' | 'all-projects') => void;
+}
+
+export function Header({ currentPage, onNavigate }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (currentPage !== 'portfolio') {
+      onNavigate('portfolio');
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const handleHomeClick = () => {
+    if (currentPage !== 'portfolio') {
+      onNavigate('portfolio');
+    } else {
+      scrollToSection('home');
+    }
+    setIsMenuOpen(false);
+  };
+
+  const handleProjectsClick = () => {
+    if (currentPage === 'all-projects') {
+      onNavigate('portfolio');
+      setTimeout(() => {
+        const element = document.getElementById('projects');
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      scrollToSection('projects');
+    }
     setIsMenuOpen(false);
   };
 
@@ -15,37 +51,57 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="text-sm text-gray-300 font-[Inter]">📍 Jakarta, Indonesia</div>
+          <button 
+            onClick={handleHomeClick}
+            className="text-sm text-gray-300 font-[Inter] hover:text-white transition-colors"
+          >
+            📍 Jakarta, Indonesia
+          </button>
         </div>
         
         <nav className="hidden md:flex items-center gap-8">
           <button 
-            onClick={() => scrollToSection('home')}
+            onClick={handleHomeClick}
             className="text-sm text-white hover:text-gray-300 transition-colors font-[Inter]"
           >
             Home
           </button>
           <button 
             onClick={() => scrollToSection('about')}
-            className="text-sm text-white hover:text-gray-300 transition-colors font-[Inter]"
+            className={`text-sm transition-colors font-[Inter] ${
+              currentPage === 'portfolio' 
+                ? 'text-white hover:text-gray-300' 
+                : 'text-gray-500 cursor-not-allowed'
+            }`}
+            disabled={currentPage !== 'portfolio'}
           >
             About
           </button>
           <button 
             onClick={() => scrollToSection('services')}
-            className="text-sm text-white hover:text-gray-300 transition-colors font-[Inter]"
+            className={`text-sm transition-colors font-[Inter] ${
+              currentPage === 'portfolio' 
+                ? 'text-white hover:text-gray-300' 
+                : 'text-gray-500 cursor-not-allowed'
+            }`}
+            disabled={currentPage !== 'portfolio'}
           >
             Services
           </button>
           <button 
-            onClick={() => scrollToSection('projects')}
+            onClick={handleProjectsClick}
             className="text-sm text-white hover:text-gray-300 transition-colors font-[Inter]"
           >
             Projects
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="text-sm text-white hover:text-gray-300 transition-colors font-[Inter]"
+            className={`text-sm transition-colors font-[Inter] ${
+              currentPage === 'portfolio' 
+                ? 'text-white hover:text-gray-300' 
+                : 'text-gray-500 cursor-not-allowed'
+            }`}
+            disabled={currentPage !== 'portfolio'}
           >
             Contact
           </button>
@@ -66,32 +122,47 @@ export function Header() {
           <div className="absolute top-full left-0 right-0 bg-black/95 border-b border-white/10 md:hidden">
             <div className="px-6 py-4 space-y-4">
               <button 
-                onClick={() => scrollToSection('home')}
+                onClick={handleHomeClick}
                 className="block text-sm text-white hover:text-gray-300 transition-colors"
               >
                 Home
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="block text-sm text-white hover:text-gray-300 transition-colors"
+                className={`block text-sm transition-colors ${
+                  currentPage === 'portfolio' 
+                    ? 'text-white hover:text-gray-300' 
+                    : 'text-gray-500 cursor-not-allowed'
+                }`}
+                disabled={currentPage !== 'portfolio'}
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="block text-sm text-white hover:text-gray-300 transition-colors"
+                className={`block text-sm transition-colors ${
+                  currentPage === 'portfolio' 
+                    ? 'text-white hover:text-gray-300' 
+                    : 'text-gray-500 cursor-not-allowed'
+                }`}
+                disabled={currentPage !== 'portfolio'}
               >
                 Services
               </button>
               <button 
-                onClick={() => scrollToSection('projects')}
+                onClick={handleProjectsClick}
                 className="block text-sm text-white hover:text-gray-300 transition-colors"
               >
                 Projects
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block text-sm text-white hover:text-gray-300 transition-colors"  
+                className={`block text-sm transition-colors ${
+                  currentPage === 'portfolio' 
+                    ? 'text-white hover:text-gray-300' 
+                    : 'text-gray-500 cursor-not-allowed'
+                }`}
+                disabled={currentPage !== 'portfolio'}
               >
                 Contact
               </button>
