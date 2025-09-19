@@ -55,18 +55,34 @@ export function About() {
             <div className="grid grid-cols-2 gap-6 pt-6">
               <div className="text-center p-4 bg-white rounded-xl shadow-sm">
                 <div className="text-2xl font-medium text-[#ff6b35] mb-2 font-[Inter]">
-                  20+
-                </div>
-                <div className="text-sm text-gray-600 font-[Plus_Jakarta_Sans]">
-                  Projects Completed
-                </div>
-              </div>
-              <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                <div className="text-2xl font-medium text-[#ff6b35] mb-2 font-[Inter]">
                   3+
                 </div>
                 <div className="text-sm text-gray-600 font-[Plus_Jakarta_Sans]">
                   Years Experience
+                </div>
+              </div>
+              <div className="text-center p-4 bg-white rounded-xl shadow-sm">
+                <div className="text-2xl font-medium text-[#ff6b35] mb-2 font-[Inter]">
+                 6
+                </div>
+                <div className="text-sm text-gray-600 font-[Plus_Jakarta_Sans]">
+                Companies                
+                </div>
+              </div>
+               <div className="text-center p-4 bg-white rounded-xl shadow-sm">
+                <div className="text-2xl font-medium text-[#ff6b35] mb-2 font-[Inter]">
+                  9+
+                </div>
+                <div className="text-sm text-gray-600 font-[Plus_Jakarta_Sans]">
+                 Key Projects
+                </div>
+              </div>
+              <div className="text-center p-4 bg-white rounded-xl shadow-sm">
+                <div className="text-2xl font-medium text-[#ff6b35] mb-2 font-[Inter]">
+                  2
+                </div>
+                <div className="text-sm text-gray-600 font-[Plus_Jakarta_Sans]">
+                 Current Roles
                 </div>
               </div>
             </div>

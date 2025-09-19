@@ -47,7 +47,7 @@ export function ProjectDetail({ project, onClose, onViewCaseStudy }: ProjectDeta
             <h1 className="text-3xl font-medium text-gray-900">{project.title}</h1>
             <p className="text-lg text-gray-600 leading-relaxed">{project.description}</p>
             <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
+              {project.tags.map((tag: string) => (
                 <span
                   key={tag}
                   className="text-sm px-3 py-1 bg-gray-100 text-gray-600 rounded-full"
@@ -86,9 +86,13 @@ export function ProjectDetail({ project, onClose, onViewCaseStudy }: ProjectDeta
 
           <div className="border-t border-gray-200 pt-8">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-gray-900 text-white hover:bg-gray-800">
-                View Live Project
-              </Button>
+              {project.liveUrl && (
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-gray-900 text-white hover:bg-gray-800">
+                    View Live Project
+                  </Button>
+                </a>
+              )}
               <Button variant="outline" onClick={() => onViewCaseStudy?.(project)}>
                 View Case Study
               </Button>

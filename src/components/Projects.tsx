@@ -36,7 +36,8 @@ export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) 
       challenge: "Balancing traditional coffee culture with contemporary design aesthetics and creating a seamless online shopping experience.",
       solution: "Developed a warm, earthy brand identity with custom illustrations and built a user-friendly e-commerce platform with detailed product stories and brewing guides.",
       year: "2024",
-      client: "Manut Coffee"
+      client: "Manut Coffee",
+      liveUrl: "https://manut-kopi.vercel.app"
     },
     {
       id: 3,

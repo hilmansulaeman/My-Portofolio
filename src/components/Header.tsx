@@ -61,7 +61,7 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
         <div className="flex items-center gap-4">
           <button 
             onClick={handleHomeClick}
-            className="text-sm text-gray-300 font-[Inter] hover:text-white transition-colors"
+            className="flex items-center gap-2 text-sm text-gray-300 font-[Inter] hover:text-white transition-colors"
           >
             📍 Jakarta, Indonesia
           </button>

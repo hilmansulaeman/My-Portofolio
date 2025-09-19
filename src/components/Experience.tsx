@@ -263,47 +263,7 @@ export function Experience() {
           </div>
         </div>
 
-        {/* Career Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-20 grid md:grid-cols-4 gap-6"
-        >
-          <div className="text-center bg-gradient-to-br from-[#A8C5E6]/10 to-[#D7C7E9]/10 rounded-2xl p-6">
-            <div className="text-3xl font-medium text-[#ff6b35] mb-2">
-              3+
-            </div>
-            <div className="text-sm text-gray-600">
-              Years Experience
-            </div>
-          </div>
-          <div className="text-center bg-gradient-to-br from-[#D7C7E9]/10 to-[#A8C5E6]/10 rounded-2xl p-6">
-            <div className="text-3xl font-medium text-[#ff6b35] mb-2">
-              6
-            </div>
-            <div className="text-sm text-gray-600">
-              Companies
-            </div>
-          </div>
-          <div className="text-center bg-gradient-to-br from-[#A8C5E6]/10 to-[#D7C7E9]/10 rounded-2xl p-6">
-            <div className="text-3xl font-medium text-[#ff6b35] mb-2">
-              9+
-            </div>
-            <div className="text-sm text-gray-600">
-              Key Projects
-            </div>
-          </div>
-          <div className="text-center bg-gradient-to-br from-[#D7C7E9]/10 to-[#A8C5E6]/10 rounded-2xl p-6">
-            <div className="text-3xl font-medium text-[#ff6b35] mb-2">
-              2
-            </div>
-            <div className="text-sm text-gray-600">
-              Current Roles
-            </div>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   );
