@@ -89,7 +89,7 @@ export function Services() {
           </h3>
           
           <div className="flex flex-wrap justify-center gap-4">
-            {['Figma', 'Adobe XD', 'Principle', 'Framer', 'React', 'HTML/CSS', 'PHP'].map((tool) => (
+            {['Figma', 'Adobe XD', 'Sketch', 'Principle', 'After Effects', 'Framer', 'React', 'HTML/CSS'].map((tool) => (
               <span
                 key={tool}
                 className="bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-700"

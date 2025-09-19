@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { motion } from "motion/react";
 import {
   ArrowLeft,
@@ -14,9 +14,10 @@ import { Input } from "./ui/input";
 
 interface AllProjectsProps {
   onBack: () => void;
+  onViewCaseStudy?: (project: any) => void;
 }
 
-export function AllProjects({ onBack }: AllProjectsProps) {
+export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
   const [selectedProject, setSelectedProject] =
     useState<any>(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,7 +27,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
     "grid",
   );
 
-  const allProjects = [
+  const allProjects = useMemo(() => [
     {
       id: 1,
       title: "Pilih Jurusan",
@@ -265,29 +266,56 @@ export function AllProjects({ onBack }: AllProjectsProps) {
       year: "2024",
       client: "StudyBuddy Team",
     },
-  ];
+  ], []);
 
-  const categories = [
+  const categories = useMemo(() => [
     "All",
     ...Array.from(new Set(allProjects.map((p) => p.category))),
-  ];
+  ], [allProjects]);
 
-  const filteredProjects = allProjects.filter((project) => {
-    const matchesSearch =
-      project.title
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase()) ||
-      project.description
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase()) ||
-      project.tags.some((tag) =>
-        tag.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-    const matchesCategory =
-      selectedCategory === "All" ||
-      project.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const filteredProjects = useMemo(() => {
+    return allProjects.filter((project) => {
+      const matchesSearch =
+        project.title
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        project.description
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase()) ||
+        project.tags.some((tag) =>
+          tag.toLowerCase().includes(searchTerm.toLowerCase()),
+        );
+      const matchesCategory =
+        selectedCategory === "All" ||
+        project.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
+  }, [allProjects, searchTerm, selectedCategory]);
+
+  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  }, []);
+
+  const handleCategorySelect = useCallback((category: string) => {
+    setSelectedCategory(category);
+  }, []);
+
+  const handleViewModeChange = useCallback((mode: "grid" | "list") => {
+    setViewMode(mode);
+  }, []);
+
+  const handleClearFilters = useCallback(() => {
+    setSearchTerm("");
+    setSelectedCategory("All");
+  }, []);
+
+  const handleProjectSelect = useCallback((project: any) => {
+    setSelectedProject(project);
+  }, []);
+
+  const handleProjectClose = useCallback(() => {
+    setSelectedProject(null);
+  }, []);
 
   return (
     <main className="pt-20">
@@ -340,9 +368,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
                     type="text"
                     placeholder="Search projects..."
                     value={searchTerm}
-                    onChange={(e) =>
-                      setSearchTerm(e.target.value)
-                    }
+                    onChange={handleSearchChange}
                     className="pl-10 w-full rounded-xl border-gray-200 focus:border-[#ff6b35] focus:ring-[#ff6b35]/20"
                   />
                 </div>
@@ -352,9 +378,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
                   {categories.map((category) => (
                     <button
                       key={category}
-                      onClick={() =>
-                        setSelectedCategory(category)
-                      }
+                      onClick={() => handleCategorySelect(category)}
                       className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                         selectedCategory === category
                           ? "bg-[#ff6b35] text-white shadow-lg shadow-[#ff6b35]/25"
@@ -369,7 +393,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
                 {/* View Toggle */}
                 <div className="flex items-center gap-2 bg-gray-100 rounded-xl p-1">
                   <button
-                    onClick={() => setViewMode("grid")}
+                    onClick={() => handleViewModeChange("grid")}
                     className={`p-2 rounded-lg transition-all duration-300 ${
                       viewMode === "grid"
                         ? "bg-white text-[#ff6b35] shadow-sm"
@@ -379,7 +403,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
                     <Grid className="w-4 h-4" />
                   </button>
                   <button
-                    onClick={() => setViewMode("list")}
+                    onClick={() => handleViewModeChange("list")}
                     className={`p-2 rounded-lg transition-all duration-300 ${
                       viewMode === "list"
                         ? "bg-white text-[#ff6b35] shadow-sm"
@@ -425,7 +449,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
                 key={project.id}
                 {...project}
                 index={index}
-                onClick={() => setSelectedProject(project)}
+                onClick={() => handleProjectSelect(project)}
               />
             ))}
           </motion.div>
@@ -450,10 +474,7 @@ export function AllProjects({ onBack }: AllProjectsProps) {
               </p>
               <Button
                 variant="outline"
-                onClick={() => {
-                  setSearchTerm("");
-                  setSelectedCategory("All");
-                }}
+                onClick={handleClearFilters}
                 className="mt-6"
               >
                 Clear Filters
@@ -467,7 +488,8 @@ export function AllProjects({ onBack }: AllProjectsProps) {
       {selectedProject && (
         <ProjectDetail
           project={selectedProject}
-          onClose={() => setSelectedProject(null)}
+          onClose={handleProjectClose}
+          onViewCaseStudy={onViewCaseStudy}
         />
       )}
     </main>

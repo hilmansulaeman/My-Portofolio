@@ -4,20 +4,12 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 
 interface ProjectDetailProps {
-  project: {
-    title: string;
-    category: string;
-    description: string;
-    image: string;
-    tags: string[];
-    goal: string;
-    challenge: string;
-    solution: string;
-  };
+  project: any;
   onClose: () => void;
+  onViewCaseStudy?: (project: any) => void;
 }
 
-export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
+export function ProjectDetail({ project, onClose, onViewCaseStudy }: ProjectDetailProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -97,7 +89,7 @@ export function ProjectDetail({ project, onClose }: ProjectDetailProps) {
               <Button className="bg-gray-900 text-white hover:bg-gray-800">
                 View Live Project
               </Button>
-              <Button variant="outline">
+              <Button variant="outline" onClick={() => onViewCaseStudy?.(project)}>
                 View Case Study
               </Button>
             </div>

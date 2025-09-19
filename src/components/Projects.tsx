@@ -5,9 +5,10 @@ import { ProjectDetail } from './ProjectDetail';
 
 interface ProjectsProps {
   onViewAllProjects?: () => void;
+  onViewCaseStudy?: (project: any) => void;
 }
 
-export function Projects({ onViewAllProjects }: ProjectsProps) {
+export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const projects = [
@@ -20,7 +21,9 @@ export function Projects({ onViewAllProjects }: ProjectsProps) {
       tags: ["UI/UX", "Mobile", "Education"],
       goal: "Create an intuitive platform that helps Indonesian students make informed decisions about their academic and career paths.",
       challenge: "Designing for diverse user groups with varying levels of digital literacy while presenting complex career information in an accessible way.",
-      solution: "Implemented a gamified onboarding process, personality assessments, and clear visual career pathways with local job market data integration."
+      solution: "Implemented a gamified onboarding process, personality assessments, and clear visual career pathways with local job market data integration.",
+      year: "2024",
+      client: "Education Startup"
     },
     {
       id: 2,
@@ -31,7 +34,9 @@ export function Projects({ onViewAllProjects }: ProjectsProps) {
       tags: ["Branding", "E-commerce", "Web Design"],
       goal: "Establish a premium coffee brand that celebrates Indonesian coffee culture while appealing to modern consumers.",
       challenge: "Balancing traditional coffee culture with contemporary design aesthetics and creating a seamless online shopping experience.",
-      solution: "Developed a warm, earthy brand identity with custom illustrations and built a user-friendly e-commerce platform with detailed product stories and brewing guides."
+      solution: "Developed a warm, earthy brand identity with custom illustrations and built a user-friendly e-commerce platform with detailed product stories and brewing guides.",
+      year: "2024",
+      client: "Manut Coffee"
     },
     {
       id: 3,
@@ -42,7 +47,9 @@ export function Projects({ onViewAllProjects }: ProjectsProps) {
       tags: ["Dashboard", "Education", "SaaS"],
       goal: "Streamline the educational process for teachers and students with a comprehensive digital learning platform.",
       challenge: "Creating an interface that works for different user roles (students, teachers, administrators) with varying technical skills.",
-      solution: "Designed role-based dashboards with simplified navigation, integrated communication tools, and responsive design for mobile learning."
+      solution: "Designed role-based dashboards with simplified navigation, integrated communication tools, and responsive design for mobile learning.",
+      year: "2023",
+      client: "Educational Institution"
     },
     {
       id: 4,
@@ -53,7 +60,9 @@ export function Projects({ onViewAllProjects }: ProjectsProps) {
       tags: ["Enterprise", "HRM", "Dashboard"],
       goal: "Modernize HR processes with an intuitive system that improves employee experience and HR efficiency.",
       challenge: "Designing complex data visualization and workflows while maintaining ease of use for non-technical HR staff.",
-      solution: "Created modular dashboard components, automated workflow wizards, and integrated employee self-service portals."
+      solution: "Created modular dashboard components, automated workflow wizards, and integrated employee self-service portals.",
+      year: "2023",
+      client: "Innovia Corp"
     },
     {
       id: 5,
@@ -64,7 +73,9 @@ export function Projects({ onViewAllProjects }: ProjectsProps) {
       tags: ["Event Management", "Mobile", "Real-time"],
       goal: "Provide event organizers with tools to manage all aspects of event planning and execution in one platform.",
       challenge: "Coordinating multiple stakeholders and real-time updates while maintaining a clean, organized interface.",
-      solution: "Built a timeline-based interface with real-time collaboration features, automated notifications, and mobile-first design for on-site management."
+      solution: "Built a timeline-based interface with real-time collaboration features, automated notifications, and mobile-first design for on-site management.",
+      year: "2023",
+      client: "Innovia Corp"
     },
     {
       id: 6,
@@ -75,7 +86,9 @@ export function Projects({ onViewAllProjects }: ProjectsProps) {
       tags: ["Healthcare", "Food Tech", "Mobile"],
       goal: "Bridge the gap between healthcare and nutrition by providing easy access to medically-approved meals.",
       challenge: "Creating trust and clarity around medical dietary requirements while maintaining an appealing food ordering experience.",
-      solution: "Implemented doctor verification system, clear nutritional labeling, and personalized meal recommendations based on medical conditions."
+      solution: "Implemented doctor verification system, clear nutritional labeling, and personalized meal recommendations based on medical conditions.",
+      year: "2024",
+      client: "Healthcare Startup"
     }
   ];
 
@@ -134,6 +147,7 @@ export function Projects({ onViewAllProjects }: ProjectsProps) {
         <ProjectDetail
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
+          onViewCaseStudy={onViewCaseStudy}
         />
       )}
     </>

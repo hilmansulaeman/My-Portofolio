@@ -3,8 +3,8 @@ import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface HeaderProps {
-  currentPage: 'portfolio' | 'all-projects';
-  onNavigate: (page: 'portfolio' | 'all-projects') => void;
+  currentPage: 'portfolio' | 'all-projects' | 'case-study';
+  onNavigate: (page: 'portfolio' | 'all-projects' | 'case-study') => void;
 }
 
 export function Header({ currentPage, onNavigate }: HeaderProps) {
@@ -41,11 +41,19 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
         const element = document.getElementById('projects');
         element?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
+    } else if (currentPage === 'case-study') {
+      onNavigate('portfolio');
+      setTimeout(() => {
+        const element = document.getElementById('projects');
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     } else {
       scrollToSection('projects');
     }
     setIsMenuOpen(false);
   };
+
+  const isPortfolioPage = currentPage === 'portfolio';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
@@ -69,22 +77,33 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           <button 
             onClick={() => scrollToSection('about')}
             className={`text-sm transition-colors font-[Inter] ${
-              currentPage === 'portfolio' 
+              isPortfolioPage 
                 ? 'text-white hover:text-gray-300' 
                 : 'text-gray-500 cursor-not-allowed'
             }`}
-            disabled={currentPage !== 'portfolio'}
+            disabled={!isPortfolioPage}
           >
             About
           </button>
           <button 
-            onClick={() => scrollToSection('services')}
+            onClick={() => scrollToSection('experience')}
             className={`text-sm transition-colors font-[Inter] ${
-              currentPage === 'portfolio' 
+              isPortfolioPage 
                 ? 'text-white hover:text-gray-300' 
                 : 'text-gray-500 cursor-not-allowed'
             }`}
-            disabled={currentPage !== 'portfolio'}
+            disabled={!isPortfolioPage}
+          >
+            Experience
+          </button>
+          <button 
+            onClick={() => scrollToSection('services')}
+            className={`text-sm transition-colors font-[Inter] ${
+              isPortfolioPage 
+                ? 'text-white hover:text-gray-300' 
+                : 'text-gray-500 cursor-not-allowed'
+            }`}
+            disabled={!isPortfolioPage}
           >
             Services
           </button>
@@ -97,11 +116,11 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
           <button 
             onClick={() => scrollToSection('contact')}
             className={`text-sm transition-colors font-[Inter] ${
-              currentPage === 'portfolio' 
+              isPortfolioPage 
                 ? 'text-white hover:text-gray-300' 
                 : 'text-gray-500 cursor-not-allowed'
             }`}
-            disabled={currentPage !== 'portfolio'}
+            disabled={!isPortfolioPage}
           >
             Contact
           </button>
@@ -130,22 +149,33 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
               <button 
                 onClick={() => scrollToSection('about')}
                 className={`block text-sm transition-colors ${
-                  currentPage === 'portfolio' 
+                  isPortfolioPage 
                     ? 'text-white hover:text-gray-300' 
                     : 'text-gray-500 cursor-not-allowed'
                 }`}
-                disabled={currentPage !== 'portfolio'}
+                disabled={!isPortfolioPage}
               >
                 About
               </button>
               <button 
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection('experience')}
                 className={`block text-sm transition-colors ${
-                  currentPage === 'portfolio' 
+                  isPortfolioPage 
                     ? 'text-white hover:text-gray-300' 
                     : 'text-gray-500 cursor-not-allowed'
                 }`}
-                disabled={currentPage !== 'portfolio'}
+                disabled={!isPortfolioPage}
+              >
+                Experience
+              </button>
+              <button 
+                onClick={() => scrollToSection('services')}
+                className={`block text-sm transition-colors ${
+                  isPortfolioPage 
+                    ? 'text-white hover:text-gray-300' 
+                    : 'text-gray-500 cursor-not-allowed'
+                }`}
+                disabled={!isPortfolioPage}
               >
                 Services
               </button>
@@ -158,11 +188,11 @@ export function Header({ currentPage, onNavigate }: HeaderProps) {
               <button 
                 onClick={() => scrollToSection('contact')}
                 className={`block text-sm transition-colors ${
-                  currentPage === 'portfolio' 
+                  isPortfolioPage 
                     ? 'text-white hover:text-gray-300' 
                     : 'text-gray-500 cursor-not-allowed'
                 }`}
-                disabled={currentPage !== 'portfolio'}
+                disabled={!isPortfolioPage}
               >
                 Contact
               </button>
