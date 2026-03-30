@@ -5,22 +5,11 @@ export function Services() {
   const services = [
     {
       icon: Smartphone,
-      title: "Mobile UI Design",
+      title: "UI UX Design",
       description: "Creating intuitive and engaging mobile interfaces that provide seamless user experiences across iOS and Android platforms.",
       color: "bg-[#A8C5E6]"
     },
-    {
-      icon: Box,
-      title: "3D Design",
-      description: "Bringing depth and dimension to digital experiences through modern 3D elements and interactive visual components.",
-      color: "bg-[#D7C7E9]"
-    },
-    {
-      icon: Zap,
-      title: "Animation",
-      description: "Crafting smooth micro-interactions and motion design that guide users and enhance the overall product experience.",
-      color: "bg-[#ff6b35]"
-    },
+   
     {
       icon: Code,
       title: "Development",
@@ -89,7 +78,7 @@ export function Services() {
           </h3>
           
           <div className="flex flex-wrap justify-center gap-4">
-            {['Figma', 'Adobe XD', 'Sketch', 'Principle', 'After Effects', 'Framer', 'React', 'HTML/CSS'].map((tool) => (
+            {['Figma', 'Adobe XD', 'Framer', 'PHP', 'CodeIgniter 3', 'Laravel', 'MySQL', 'GIT', 'React', 'HTML/CSS'].map((tool) => (
               <span
                 key={tool}
                 className="bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-gray-700"

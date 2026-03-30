@@ -51,7 +51,7 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
       category: "Branding & E-commerce",
       description:
         "Complete brand identity and e-commerce platform for artisanal coffee shop with focus on local Indonesian beans.",
-      image:
+       image:
         "https://images.unsplash.com/photo-1750825997349-a59f9639300e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBzaG9wJTIwYnJhbmRpbmclMjBkZXNpZ258ZW58MXx8fHwxNzU4MTYzMDM1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       tags: ["Branding", "E-commerce", "Web Design"],
       goal: "Establish a premium coffee brand that celebrates Indonesian coffee culture while appealing to modern consumers.",

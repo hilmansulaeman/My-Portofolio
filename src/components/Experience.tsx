@@ -11,8 +11,8 @@ export function Experience() {
         "Jl. Bendungan Hilir No. 31A, RT. 1/RW. 3, Bend. Hilir, Central Jakarta City",
       period: "Feb 2025 - Present",
       type: "Full-time",
-      description:
-        "Handles client requests and needs directly. Performs bug fixes on running systems to maintain application stability. Responsible for performance enhancements and developing new features for PHP (CodeIgniter 3)-based applications.",
+      description: "Collaborated with internal stakeholders (HR, Sales, MIS, and Helpdesk) to gather and define system requirements. Developed and optimized web application features using PHP (CodeIgniter 3). Built and maintained frontend modules with React.js. Handled bug fixing and system maintenance to ensure stability and reliability. Coordinated with EDC technicians and helpdesk teams to resolve technical integration issues."
+,
       skills: [
         "PHP",
         "CodeIgniter 3",
@@ -77,9 +77,7 @@ export function Experience() {
       location: "Jakarta, Indonesia",
       period: "June 2023 - August 2023",
       type: "Part-Time",
-      description:
-        "Worked on ERP system development. Created UI components and supported front-end functionality.",
-      skills: [
+description: "Handled ERP system development, ensuring efficient frontend implementation and optimal system usability. Worked independently and collaboratively to translate UI designs into clean, maintainable code.",      skills: [
         "Frontend Development",
         "ERP Systems",
         "UI Components",
@@ -95,8 +93,8 @@ export function Experience() {
         "South Jakarta City, Special Capital Region of Jakarta",
       period: "Feb 2023 - Jul 2023",
       type: "Independent Study",
-      description:
-        "Designed web interfaces for company projects. Focused on improving the user experience.",
+     description: "Conducted user research and design processes for company websites through the MSIB Kampus Merdeka program. Bridged the gap between design and development by ensuring UI mockups were technically feasible and implementable by the engineering team."
+,
       skills: [
         "UI/UX Design",
         "Web Interface Design",

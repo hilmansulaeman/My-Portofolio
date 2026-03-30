@@ -17,34 +17,34 @@ export function CaseStudy({ project, onBack }: CaseStudyProps) {
     {
       title: "Research & Discovery",
       description: "Understanding user needs, market analysis, and defining project scope",
-      duration: "2 weeks"
+      duration: "1 - 2 Months"
     },
     {
       title: "Ideation & Wireframing",
       description: "Brainstorming solutions, creating user flows, and low-fidelity prototypes",
-      duration: "1 week"
+      duration: "2 - 3 week"
     },
     {
       title: "Design & Prototyping",
       description: "High-fidelity designs, interactive prototypes, and design system creation",
-      duration: "3 weeks"
+      duration: "1.5 - 2 Months"
     },
     {
       title: "Testing & Iteration",
       description: "User testing, feedback collection, and design refinements",
-      duration: "1 week"
+      duration: "1 Month"
     },
     {
       title: "Development & Launch",
       description: "Implementation support, quality assurance, and project delivery",
-      duration: "2 weeks"
+      duration: "2 - 3 Months"
     }
   ];
 
   const keyMetrics = [
-    { label: "Project Duration", value: "9 weeks" },
-    { label: "Team Size", value: "4 people" },
-    { label: "User Testing Sessions", value: "12" },
+    { label: "Project Duration", value: "1 Years" },
+    { label: "Team Size", value: "1 people" },
+    { label: "User Testing Sessions", value: "5" },
     { label: "Design Iterations", value: "3" }
   ];
 
@@ -311,7 +311,7 @@ export function CaseStudy({ project, onBack }: CaseStudyProps) {
                   What Worked Well
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Early user testing and iterative design approach allowed us to identify and resolve usability issues before development. The collaborative approach with stakeholders ensured alignment throughout the project.
+                  The implementation of an integrated POS system with a structured digital menu and real-time order processing successfully improved ordering efficiency and reduced customer wait times. Early validation of user needs helped ensure the solution addressed real operational challenges at Manut Kopi.
                 </p>
               </div>
               <div>
@@ -319,15 +319,14 @@ export function CaseStudy({ project, onBack }: CaseStudyProps) {
                   Areas for Improvement
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  More extensive accessibility testing could have been incorporated earlier in the process. Additional time for edge case scenarios would have helped create more robust solutions.
-                </p>
+Further usability testing in real operational conditions could have been conducted earlier to better handle peak-hour scenarios. Additionally, more exploration of edge cases, such as high traffic and order conflicts, would improve system robustness.                </p>
               </div>
               <div>
                 <h3 className="text-xl font-medium text-gray-900 mb-3">
                   Future Considerations
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  The design system created for this project can be extended to support additional features and platforms. Performance optimization remains a key area for ongoing improvement.
+The POS system can be further enhanced by adding features such as customer order tracking, integrated payment methods, and analytics dashboards for business insights. Continuous optimization of performance and user flow will be essential as usage scales.
                 </p>
               </div>
             </div>

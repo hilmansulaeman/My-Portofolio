@@ -30,26 +30,16 @@ export function About() {
             className="space-y-6"
           >
             <p className="text-lg text-gray-600 leading-relaxed font-[Plus_Jakarta_Sans]">
-              Hi, I'm Hilman Sulaeman, a passionate UI UX with
-              over 3 years & Front End Developer with over 1
-              years of experience creating digital experiences
-              that bridge the gap between user needs and
-              business goals.
+              Hi, I’m Hilman Sulaeman — a UI/UX Designer with 3+ years of experience and a Front End Developer with over 1 year of hands-on practice in building digital products.
             </p>
 
             <p className="text-lg text-gray-600 leading-relaxed font-[Plus_Jakarta_Sans]">
-              My design philosophy centers around simplicity and
-              clarity—I believe that great design should feel
-              effortless to users while solving complex problems
-              underneath. I specialize in mobile applications,
-              web platforms, and comprehensive design systems.
+              I focus on creating intuitive and impactful user experiences that align user needs with business goals. My approach to design emphasizes simplicity and clarity, ensuring that every solution feels effortless for users while addressing complex problems behind the scenes.
             </p>
 
             <p className="text-lg text-gray-600 leading-relaxed font-[Plus_Jakarta_Sans]">
-              When I'm not designing, you'll find me exploring
-              the latest design trends, sketching ideas in my
-              notebook, or collaborating with development teams
-              to bring digital products to life.
+              I have experience working on mobile applications, web platforms, and developing scalable design systems.
+Outside of work, I enjoy exploring design trends, sketching ideas, and collaborating with developers to turn concepts into real, functional products.
             </p>
 
             <div className="grid grid-cols-2 gap-6 pt-6">
@@ -126,8 +116,7 @@ export function About() {
                   Innovation
                 </h4>
                 <p className="text-sm text-gray-600 font-[Plus_Jakarta_Sans]">
-                  Exploring new technologies and design
-                  methodologies
+                  Building responsive, scalable, and user-friendly interfaces using modern front-end technologies
                 </p>
               </div>
             </div>

@@ -21,6 +21,8 @@ export default function App() {
   const handleViewCaseStudy = (project: any) => {
     setSelectedProject(project);
     setCurrentPage('case-study');
+    // Scroll to top when navigating to case study
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const renderCurrentPage = () => {
