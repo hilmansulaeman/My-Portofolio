@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Calendar, User, Tag, Target, Lightbulb, CheckCircle, ExternalLink } from 'lucide-react';
 import { Button } from './ui/button';
