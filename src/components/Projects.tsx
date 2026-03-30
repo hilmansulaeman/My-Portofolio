@@ -30,7 +30,7 @@ export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) 
       title: "Manut Kopi",
       category: "Branding & E-commerce",
       description: "Manut Kopi adalah sebuah kedai kopi yang berlokasi di Kota Bekasi",
-      image: "/src/assets/mockup_manut.png",
+      image: "/assets/mockup_manut.png",
       tags: ["POS System", "Web App", "E-commerce"],
       goal: "The purpose of developing the POS System application in Manut Kopi is to increase operational efficiency and customer comfort in the process of ordering food and beverages.",
       challenge: "How might we streamline the ordering process at Manut Kopi to make it faster, more intuitive, and efficient, reducing customer wait time and preventing service bottlenecks?",
