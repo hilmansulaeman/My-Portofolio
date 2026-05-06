@@ -2,15 +2,16 @@ import { useState, useMemo, useCallback } from "react";
 import { motion } from "motion/react";
 import {
   ArrowLeft,
-  Filter,
-  Grid,
-  List,
   Search,
 } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectDetail } from "./ProjectDetail";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import inmedFoodImage from "../assets/InmedFood.png";
+import EdupassImage from "../assets/Edupass.png";
+import MockupManutImage from '../assets/mockup_manut.png';
+
 
 interface AllProjectsProps {
   onBack: () => void;
@@ -23,9 +24,6 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] =
     useState("All");
-  const [viewMode, setViewMode] = useState<"grid" | "list">(
-    "grid",
-  );
 
   const allProjects = useMemo(() => [
     {
@@ -51,7 +49,7 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
       category: "Branding & E-commerce",
       description:
         "Complete brand identity and e-commerce platform for artisanal coffee shop with focus on local Indonesian beans.",
-      image: "/assets/mockup_manut.png",
+      image: MockupManutImage,
       tags: ["Branding", "E-commerce", "Web Design"],
       goal: "Establish a premium coffee brand that celebrates Indonesian coffee culture while appealing to modern consumers.",
       challenge:
@@ -67,8 +65,7 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
       category: "Web Platform",
       description:
         "Learning management system designed for Indonesian educational institutions with integrated assessment tools.",
-      image:
-        "https://images.unsplash.com/photo-1665470909939-959569b20021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBhcHBsaWNhdGlvbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NTgwOTEyNDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: EdupassImage,
       tags: ["Dashboard", "Education", "SaaS"],
       goal: "Streamline the educational process for teachers and students with a comprehensive digital learning platform.",
       challenge:
@@ -118,8 +115,7 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
       category: "Food Delivery",
       description:
         "Healthcare-focused food delivery app connecting patients with nutritionist-approved meal options.",
-      image:
-        "https://images.unsplash.com/photo-1663153206138-cc0f166f82af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb29kJTIwZGVsaXZlcnklMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzU4MTYzMDQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: inmedFoodImage,
       tags: ["Healthcare", "Food Tech", "Mobile"],
       goal: "Bridge the gap between healthcare and nutrition by providing easy access to medically-approved meals.",
       challenge:
@@ -299,10 +295,6 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
     setSelectedCategory(category);
   }, []);
 
-  const handleViewModeChange = useCallback((mode: "grid" | "list") => {
-    setViewMode(mode);
-  }, []);
-
   const handleClearFilters = useCallback(() => {
     setSearchTerm("");
     setSelectedCategory("All");
@@ -318,14 +310,13 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
 
   return (
     <main className="pt-20">
-      <section className="min-h-screen py-24 px-6 bg-gradient-to-b from-[#F4F4F6] to-white">
+      <section className="min-h-screen py-24 px-6 bg-gradient-to-b from-[#F4F4F6] via-white to-white">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-12"
+            className="mb-12 text-center"
           >
             <Button
               variant="ghost"
@@ -336,33 +327,26 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
               Back to Portfolio
             </Button>
 
-            <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6">
-                All Projects
-              </h1>
-              <div className="w-16 h-1 bg-[#ff6b35] mx-auto rounded-full mb-6"></div>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Explore my complete portfolio of digital
-                products, from mobile apps to enterprise
-                solutions. Each project represents a unique
-                challenge and a story of problem-solving through
-                design.
-              </p>
-            </div>
+            <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-5">
+              All Projects
+            </h1>
+            <div className="w-16 h-1 bg-[#ff6b35] mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Explore a selected set of projects with a simpler, cleaner view.
+              The focus stays on the work, not the interface.
+            </p>
           </motion.div>
 
-          {/* Filters and Search */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-12"
+            className="mb-10"
           >
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
-                {/* Search */}
-                <div className="relative flex-1 max-w-md">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+              <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_auto] lg:items-center">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <Input
                     type="text"
                     placeholder="Search projects..."
@@ -372,15 +356,14 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
                   />
                 </div>
 
-                {/* Category Filter */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 lg:justify-end">
                   {categories.map((category) => (
                     <button
                       key={category}
                       onClick={() => handleCategorySelect(category)}
-                      className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                         selectedCategory === category
-                          ? "bg-[#ff6b35] text-white shadow-lg shadow-[#ff6b35]/25"
+                          ? "bg-[#ff6b35] text-white shadow-md shadow-[#ff6b35]/20"
                           : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     >
@@ -388,60 +371,40 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
                     </button>
                   ))}
                 </div>
-
-                {/* View Toggle */}
-                <div className="flex items-center gap-2 bg-gray-100 rounded-xl p-1">
-                  <button
-                    onClick={() => handleViewModeChange("grid")}
-                    className={`p-2 rounded-lg transition-all duration-300 ${
-                      viewMode === "grid"
-                        ? "bg-white text-[#ff6b35] shadow-sm"
-                        : "text-gray-500 hover:text-gray-700"
-                    }`}
-                  >
-                    <Grid className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => handleViewModeChange("list")}
-                    className={`p-2 rounded-lg transition-all duration-300 ${
-                      viewMode === "list"
-                        ? "bg-white text-[#ff6b35] shadow-sm"
-                        : "text-gray-500 hover:text-gray-700"
-                    }`}
-                  >
-                    <List className="w-4 h-4" />
-                  </button>
-                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Results Counter */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mb-8"
           >
-            <p className="text-gray-600">
-              {filteredProjects.length} project
-              {filteredProjects.length !== 1 ? "s" : ""} found
-              {selectedCategory !== "All" &&
-                ` in ${selectedCategory}`}
-              {searchTerm && ` matching "${searchTerm}"`}
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-gray-600">
+              <p>
+                {filteredProjects.length} project
+                {filteredProjects.length !== 1 ? "s" : ""} found
+                {selectedCategory !== "All" && ` in ${selectedCategory}`}
+                {searchTerm && ` matching "${searchTerm}"`}
+              </p>
+
+              {(searchTerm || selectedCategory !== "All") && (
+                <button
+                  onClick={handleClearFilters}
+                  className="self-start sm:self-auto text-[#ff6b35] font-medium hover:underline"
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
           </motion.div>
 
-          {/* Projects Grid/List */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className={
-              viewMode === "grid"
-                ? "grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-                : "space-y-6"
-            }
+            className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
           >
             {filteredProjects.map((project, index) => (
               <ProjectCard
@@ -453,7 +416,6 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
             ))}
           </motion.div>
 
-          {/* No Results */}
           {filteredProjects.length === 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}

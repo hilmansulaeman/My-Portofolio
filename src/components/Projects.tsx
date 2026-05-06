@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ProjectCard } from './ProjectCard';
 import { ProjectDetail } from './ProjectDetail';
+import inmedFoodImage from '../assets/InmedFood.png';
+import EdupassImage from '../assets/Edupass.png';
+import MockupManutImage from '../assets/mockup_manut.png';
 
 interface ProjectsProps {
   onViewAllProjects?: () => void;
@@ -29,8 +32,8 @@ export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) 
       id: 2,
       title: "Manut Kopi",
       category: "Branding & E-commerce",
-      description: "Manut Kopi adalah sebuah kedai kopi yang berlokasi di Kota Bekasi",
-      image: "/assets/mockup_manut.png",
+      description: "Manut Kopi is a coffee shop located in Bekasi City",
+      image: MockupManutImage,
       tags: ["POS System", "Web App", "E-commerce"],
       goal: "The purpose of developing the POS System application in Manut Kopi is to increase operational efficiency and customer comfort in the process of ordering food and beverages.",
       challenge: "How might we streamline the ordering process at Manut Kopi to make it faster, more intuitive, and efficient, reducing customer wait time and preventing service bottlenecks?",
@@ -44,7 +47,7 @@ export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) 
       title: "EDUPAS",
       category: "Web Platform",
       description: "Learning management system designed for Indonesian educational institutions with integrated assessment tools.",
-      image: "https://images.unsplash.com/photo-1665470909939-959569b20021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBhcHBsaWNhdGlvbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NTgwOTEyNDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: EdupassImage,
       tags: ["Dashboard", "Education", "SaaS"],
       goal: "Streamline the educational process for teachers and students with a comprehensive digital learning platform.",
       challenge: "Creating an interface that works for different user roles (students, teachers, administrators) with varying technical skills.",
@@ -83,7 +86,7 @@ export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) 
       title: "InmedFood",
       category: "Food Delivery",
       description: "Healthcare-focused food delivery app connecting patients with nutritionist-approved meal options.",
-      image: "https://images.unsplash.com/photo-1663153206138-cc0f166f82af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb29kJTIwZGVsaXZlcnklMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzU4MTYzMDQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: inmedFoodImage,
       tags: ["Healthcare", "Food Tech", "Mobile"],
       goal: "Bridge the gap between healthcare and nutrition by providing easy access to medically-approved meals.",
       challenge: "Creating trust and clarity around medical dietary requirements while maintaining an appealing food ordering experience.",
