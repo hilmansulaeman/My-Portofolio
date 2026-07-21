@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { ProjectCard } from './ProjectCard';
 import { ProjectDetail } from './ProjectDetail';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from './ui/carousel';
 import inmedFoodImage from '../assets/InmedFood.png';
 import EdupassImage from '../assets/Edupass.png';
 import MockupManutImage from '../assets/mockup_manut.png';
+import PotoboxImage from '../assets/Potobox.png';
 
 interface ProjectsProps {
   onViewAllProjects?: () => void;
@@ -13,20 +22,39 @@ interface ProjectsProps {
 
 export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) {
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const [selectedSlide, setSelectedSlide] = useState(0);
+  const [slideSnaps, setSlideSnaps] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const updateSelection = () => setSelectedSlide(carouselApi.selectedScrollSnap());
+
+    setSlideSnaps(carouselApi.scrollSnapList());
+    updateSelection();
+    carouselApi.on('select', updateSelection);
+    carouselApi.on('reInit', updateSelection);
+
+    return () => {
+      carouselApi.off('select', updateSelection);
+      carouselApi.off('reInit', updateSelection);
+    };
+  }, [carouselApi]);
 
   const projects = [
     {
       id: 1,
       title: "Pilih Jurusan",
-      category: "Mobile App",
-      description: "Educational guidance app helping students choose the right career path with AI-powered recommendations.",
+      category: "Company Profile Website",
+      description: "Redesigned the company profile website for Pilih Jurusan, a psychological assessment platform that helps students make confident study and career decisions.",
       image: "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBwbGF0Zm9ybSUyMGludGVyZmFjZXxlbnwxfHx8fDE3NTgwODIzOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["UI/UX", "Mobile", "Education"],
-      goal: "Create an intuitive platform that helps Indonesian students make informed decisions about their academic and career paths.",
-      challenge: "Designing for diverse user groups with varying levels of digital literacy while presenting complex career information in an accessible way.",
-      solution: "Implemented a gamified onboarding process, personality assessments, and clear visual career pathways with local job market data integration.",
-      year: "2024",
-      client: "Education Startup"
+      tags: ["UI/UX", "Website Redesign", "Education"],
+      goal: "Improve the company profile experience so Pilih Jurusan's services, benefits, and value for students and school partners are communicated clearly.",
+      challenge: "Presenting psychological assessment services and educational guidance in a clear, approachable way for students, parents, and school partners.",
+      solution: "Redesigned the company profile with clearer service information, benefit-focused content, and conversion paths for students and school partners.",
+      year: "February – August 2024",
+      client: "Pilih Jurusan"
     },
     {
       id: 2,
@@ -46,53 +74,67 @@ export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) 
       id: 3,
       title: "EDUPAS",
       category: "Web Platform",
-      description: "Learning management system designed for Indonesian educational institutions with integrated assessment tools.",
+      description: "An integrated campus platform for learning activities and discovering campus events in one place.",
       image: EdupassImage,
-      tags: ["Dashboard", "Education", "SaaS"],
-      goal: "Streamline the educational process for teachers and students with a comprehensive digital learning platform.",
-      challenge: "Creating an interface that works for different user roles (students, teachers, administrators) with varying technical skills.",
-      solution: "Designed role-based dashboards with simplified navigation, integrated communication tools, and responsive design for mobile learning.",
+      tags: ["Learning Platform", "Campus Events", "Education"],
+      goal: "Provide students with one accessible platform for learning resources, academic activities, and campus event information.",
+      challenge: "Bringing learning activities and campus event discovery into one clear experience without overwhelming students.",
+      solution: "Designed an integrated platform with learning materials, academic schedules, campus event listings, and event registration flows.",
       year: "2023",
-      client: "Educational Institution"
+      client: "EDUPAS"
     },
     {
       id: 4,
       title: "Innovia HRM",
       category: "Enterprise Software",
-      description: "Human Resource Management system with advanced analytics and employee engagement features.",
+      description: "An integrated HR management platform that streamlines employee data, HR operations, and workforce insights.",
       image: "https://images.unsplash.com/photo-1610387695018-3a90bf21c575?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjB3ZWIlMjBkZXNpZ258ZW58MXx8fHwxNzU4MTYzMDM2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Enterprise", "HRM", "Dashboard"],
-      goal: "Modernize HR processes with an intuitive system that improves employee experience and HR efficiency.",
-      challenge: "Designing complex data visualization and workflows while maintaining ease of use for non-technical HR staff.",
-      solution: "Created modular dashboard components, automated workflow wizards, and integrated employee self-service portals.",
+      tags: ["HRM", "Employee Management", "Dashboard"],
+      goal: "Centralize employee information and simplify core HR processes for a more efficient HR team and employee experience.",
+      challenge: "Making complex HR workflows, employee data, and operational insights easy to access for HR teams and employees.",
+      solution: "Designed role-based dashboards, structured employee data management, and self-service workflows for everyday HR tasks.",
       year: "2023",
-      client: "Innovia Corp"
+      client: "Innovia"
     },
     {
       id: 5,
       title: "Event Run by Innovia",
       category: "Event Management",
-      description: "Comprehensive event management platform for organizing and tracking corporate events and activities.",
+      description: "An event management platform for organising, promoting, and tracking Innovia's internal events in one place.",
       image: "https://images.unsplash.com/photo-1750041888982-67a58e6c9014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxldmVudCUyMG1hbmFnZW1lbnQlMjBhcHB8ZW58MXx8fHwxNzU4MTYzMDQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Event Management", "Mobile", "Real-time"],
-      goal: "Provide event organizers with tools to manage all aspects of event planning and execution in one platform.",
-      challenge: "Coordinating multiple stakeholders and real-time updates while maintaining a clean, organized interface.",
-      solution: "Built a timeline-based interface with real-time collaboration features, automated notifications, and mobile-first design for on-site management.",
+      tags: ["Event Management", "Event Platform", "Dashboard"],
+      goal: "Give organisers and participants one clear place to discover event information, schedules, and registration details.",
+      challenge: "Presenting event details, updates, and participant needs in a simple experience that remains easy to scan.",
+      solution: "Designed an event-focused dashboard with event listings, detail pages, schedules, and registration flows for participants.",
       year: "2023",
-      client: "Innovia Corp"
+      client: "Innovia"
     },
     {
       id: 6,
       title: "InmedFood",
-      category: "Food Delivery",
-      description: "Healthcare-focused food delivery app connecting patients with nutritionist-approved meal options.",
+      category: "UMKM Food Platform",
+      description: "A digital food ordering platform that helps UMKM manage their menu, orders, and customer experience.",
       image: inmedFoodImage,
-      tags: ["Healthcare", "Food Tech", "Mobile"],
-      goal: "Bridge the gap between healthcare and nutrition by providing easy access to medically-approved meals.",
-      challenge: "Creating trust and clarity around medical dietary requirements while maintaining an appealing food ordering experience.",
-      solution: "Implemented doctor verification system, clear nutritional labeling, and personalized meal recommendations based on medical conditions.",
+      tags: ["UMKM", "Food Ordering", "Mobile App"],
+      goal: "Help food UMKM reach customers through a simple digital ordering experience and clearer menu management.",
+      challenge: "Creating an easy ordering flow that supports UMKM operations while remaining simple and appealing for customers.",
+      solution: "Designed a mobile-first platform with digital menus, product discovery, cart, and order flows tailored to food UMKM.",
       year: "2024",
-      client: "Healthcare Startup"
+      client: "InmedFood"
+    },
+    {
+      id: 15,
+      title: "Urbanmenphoto",
+      category: "Kiosk & Photobooth System",
+      description: "A self-service web photobooth for capturing, editing, printing, and sharing event photos.",
+      image: PotoboxImage,
+      tags: ["Kiosk", "Photobooth", "Admin Dashboard"],
+      goal: "Digitalize the photobooth experience into a self-service web flow, from payment and photo capture to editing, printing, and sharing through a gallery link or QR code.",
+      challenge: "Keeping a feature-rich kiosk flow fast and easy to understand while ensuring photo sessions, uploads, and booth operations remain reliable.",
+      solution: "Designed a kiosk-first wizard with payment, capture, frame selection, editing, GIF creation, printing, and sharing, supported by an admin dashboard for sessions, payments, galleries, frames, reports, and recovery.",
+      year: "—",
+      client: "Urbanmenphoto",
+      liveUrl: "https://photo-box-dev.vercel.app/"
     }
   ];
 
@@ -117,16 +159,39 @@ export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) 
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                {...project}
-                index={index}
-                onClick={() => setSelectedProject(project)}
-              />
-            ))}
-          </div>
+          <Carousel
+            setApi={setCarouselApi}
+            opts={{ align: 'start', loop: true, slidesToScroll: 3 }}
+            className="featured-project-carousel"
+          >
+            <CarouselContent className="featured-project-carousel-content">
+              {projects.map((project, index) => (
+                <CarouselItem key={project.id} className="featured-project-carousel-item">
+                  <ProjectCard
+                    {...project}
+                    index={index}
+                    onClick={() => setSelectedProject(project)}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            <CarouselPrevious aria-label="Previous projects" className="featured-project-carousel-arrow featured-project-carousel-arrow-previous" />
+            <CarouselNext aria-label="Next projects" className="featured-project-carousel-arrow featured-project-carousel-arrow-next" />
+
+            <div className="featured-project-carousel-dots" aria-label="Project slides">
+              {slideSnaps.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  aria-label={`Go to slide ${index + 1}`}
+                  aria-current={selectedSlide === index}
+                  className={`featured-project-carousel-dot ${selectedSlide === index ? 'is-active' : ''}`}
+                  onClick={() => carouselApi?.scrollTo(index)}
+                />
+              ))}
+            </div>
+          </Carousel>
 
           {onViewAllProjects && (
             <motion.div
@@ -134,11 +199,12 @@ export function Projects({ onViewAllProjects, onViewCaseStudy }: ProjectsProps) 
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mt-16"
+              className="text-center"
+              style={{ marginTop: '64px' }}
             >
               <button 
                 onClick={onViewAllProjects}
-                className="bg-gray-900 text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 font-[Inter]"
+                className="featured-projects-view-all"
               >
                 View All Projects
               </button>

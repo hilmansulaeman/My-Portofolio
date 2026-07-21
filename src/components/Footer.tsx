@@ -30,7 +30,7 @@ export function Footer() {
                 Hilman Sulaeman
               </h3>
               <p className="text-gray-400 font-[Plus_Jakarta_Sans]">
-                UI UX & Front End Developer
+                UI UX & Full Stack Developer
               </p>
             </div>
 
@@ -101,7 +101,9 @@ export function Footer() {
             </h4>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.linkedin.com/in/hilman-sulaeman/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#ff6b35] transition-all duration-300 hover:-translate-y-1"
               >
                 <Linkedin className="w-4 h-4" />

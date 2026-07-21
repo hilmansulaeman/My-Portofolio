@@ -30,22 +30,21 @@ export function About() {
             className="space-y-6"
           >
             <p className="text-lg text-gray-600 leading-relaxed font-[Plus_Jakarta_Sans]">
-              Hi, I’m Hilman Sulaeman — a UI/UX Designer with 3+ years of experience and a Front End Developer with over 1 year of hands-on practice in building digital products.
+              Hi, I’m Hilman Sulaeman — a UI/UX Designer with 3 years of experience and a Full Stack Developer with 1.5 years of hands-on experience building digital products.
             </p>
 
             <p className="text-lg text-gray-600 leading-relaxed font-[Plus_Jakarta_Sans]">
-              I focus on creating intuitive and impactful user experiences that align user needs with business goals. My approach to design emphasizes simplicity and clarity, ensuring that every solution feels effortless for users while addressing complex problems behind the scenes.
+              I create intuitive, impactful experiences that align user needs with business goals, then bring them to life through end-to-end product development. My approach emphasizes simplicity and clarity, so every solution feels effortless for users while solving complex problems behind the scenes.
             </p>
 
             <p className="text-lg text-gray-600 leading-relaxed font-[Plus_Jakarta_Sans]">
-              I have experience working on mobile applications, web platforms, and developing scalable design systems.
-Outside of work, I enjoy exploring design trends, sketching ideas, and collaborating with developers to turn concepts into real, functional products.
+              My work spans company profile websites, POS systems, learning and campus-event platforms, HR management tools, UMKM food ordering, and self-service photobooth kiosks. I enjoy turning ideas into functional, scalable products through thoughtful design and full stack development.
             </p>
 
             <div className="grid grid-cols-2 gap-6 pt-6">
               <div className="text-center p-4 bg-white rounded-xl shadow-sm">
                 <div className="text-2xl font-medium text-[#ff6b35] mb-2 font-[Inter]">
-                  3+
+                  3
                 </div>
                 <div className="text-sm text-gray-600 font-[Plus_Jakarta_Sans]">
                   Years Experience

@@ -11,6 +11,7 @@ import { Input } from "./ui/input";
 import inmedFoodImage from "../assets/InmedFood.png";
 import EdupassImage from "../assets/Edupass.png";
 import MockupManutImage from '../assets/mockup_manut.png';
+import PotoboxImage from "../assets/Potobox.png";
 
 
 interface AllProjectsProps {
@@ -29,19 +30,19 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
     {
       id: 1,
       title: "Pilih Jurusan",
-      category: "Mobile App",
+      category: "Company Profile Website",
       description:
-        "Educational guidance app helping students choose the right career path with AI-powered recommendations.",
+        "Redesigned the company profile website for Pilih Jurusan, a psychological assessment platform that helps students make confident study and career decisions.",
       image:
         "https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlZHVjYXRpb24lMjBwbGF0Zm9ybSUyMGludGVyZmFjZXxlbnwxfHx8fDE3NTgwODIzOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["UI/UX", "Mobile", "Education"],
-      goal: "Create an intuitive platform that helps Indonesian students make informed decisions about their academic and career paths.",
+      tags: ["UI/UX", "Website Redesign", "Education"],
+      goal: "Improve the company profile experience so Pilih Jurusan's services, benefits, and value for students and school partners are communicated clearly.",
       challenge:
-        "Designing for diverse user groups with varying levels of digital literacy while presenting complex career information in an accessible way.",
+        "Presenting psychological assessment services and educational guidance in a clear, approachable way for students, parents, and school partners.",
       solution:
-        "Implemented a gamified onboarding process, personality assessments, and clear visual career pathways with local job market data integration.",
-      year: "2024",
-      client: "Education Startup",
+        "Redesigned the company profile with clearer service information, benefit-focused content, and conversion paths for students and school partners.",
+      year: "February – August 2024",
+      client: "Pilih Jurusan",
     },
     {
       id: 2,
@@ -64,66 +65,66 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
       title: "EDUPAS",
       category: "Web Platform",
       description:
-        "Learning management system designed for Indonesian educational institutions with integrated assessment tools.",
+        "An integrated campus platform for learning activities and discovering campus events in one place.",
       image: EdupassImage,
-      tags: ["Dashboard", "Education", "SaaS"],
-      goal: "Streamline the educational process for teachers and students with a comprehensive digital learning platform.",
+      tags: ["Learning Platform", "Campus Events", "Education"],
+      goal: "Provide students with one accessible platform for learning resources, academic activities, and campus event information.",
       challenge:
-        "Creating an interface that works for different user roles (students, teachers, administrators) with varying technical skills.",
+        "Bringing learning activities and campus event discovery into one clear experience without overwhelming students.",
       solution:
-        "Designed role-based dashboards with simplified navigation, integrated communication tools, and responsive design for mobile learning.",
+        "Designed an integrated platform with learning materials, academic schedules, campus event listings, and event registration flows.",
       year: "2023",
-      client: "Educational Institution",
+      client: "EDUPAS",
     },
     {
       id: 4,
       title: "Innovia HRM",
       category: "Enterprise Software",
       description:
-        "Human Resource Management system with advanced analytics and employee engagement features.",
+        "An integrated HR management platform that streamlines employee data, HR operations, and workforce insights.",
       image:
         "https://images.unsplash.com/photo-1610387695018-3a90bf21c575?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjB3ZWIlMjBkZXNpZ258ZW58MXx8fHwxNzU4MTYzMDM2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Enterprise", "HRM", "Dashboard"],
-      goal: "Modernize HR processes with an intuitive system that improves employee experience and HR efficiency.",
+      tags: ["HRM", "Employee Management", "Dashboard"],
+      goal: "Centralize employee information and simplify core HR processes for a more efficient HR team and employee experience.",
       challenge:
-        "Designing complex data visualization and workflows while maintaining ease of use for non-technical HR staff.",
+        "Making complex HR workflows, employee data, and operational insights easy to access for HR teams and employees.",
       solution:
-        "Created modular dashboard components, automated workflow wizards, and integrated employee self-service portals.",
+        "Designed role-based dashboards, structured employee data management, and self-service workflows for everyday HR tasks.",
       year: "2023",
-      client: "Innovia Corp",
+      client: "Innovia",
     },
     {
       id: 5,
       title: "Event Run by Innovia",
       category: "Event Management",
       description:
-        "Comprehensive event management platform for organizing and tracking corporate events and activities.",
+        "An event management platform for organising, promoting, and tracking Innovia's internal events in one place.",
       image:
         "https://images.unsplash.com/photo-1750041888982-67a58e6c9014?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxldmVudCUyMG1hbmFnZW1lbnQlMjBhcHB8ZW58MXx8fHwxNzU4MTYzMDQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Event Management", "Mobile", "Real-time"],
-      goal: "Provide event organizers with tools to manage all aspects of event planning and execution in one platform.",
+      tags: ["Event Management", "Event Platform", "Dashboard"],
+      goal: "Give organisers and participants one clear place to discover event information, schedules, and registration details.",
       challenge:
-        "Coordinating multiple stakeholders and real-time updates while maintaining a clean, organized interface.",
+        "Presenting event details, updates, and participant needs in a simple experience that remains easy to scan.",
       solution:
-        "Built a timeline-based interface with real-time collaboration features, automated notifications, and mobile-first design for on-site management.",
+        "Designed an event-focused dashboard with event listings, detail pages, schedules, and registration flows for participants.",
       year: "2023",
-      client: "Innovia Corp",
+      client: "Innovia",
     },
     {
       id: 6,
       title: "InmedFood",
-      category: "Food Delivery",
+      category: "UMKM Food Platform",
       description:
-        "Healthcare-focused food delivery app connecting patients with nutritionist-approved meal options.",
+        "A digital food ordering platform that helps UMKM manage their menu, orders, and customer experience.",
       image: inmedFoodImage,
-      tags: ["Healthcare", "Food Tech", "Mobile"],
-      goal: "Bridge the gap between healthcare and nutrition by providing easy access to medically-approved meals.",
+      tags: ["UMKM", "Food Ordering", "Mobile App"],
+      goal: "Help food UMKM reach customers through a simple digital ordering experience and clearer menu management.",
       challenge:
-        "Creating trust and clarity around medical dietary requirements while maintaining an appealing food ordering experience.",
+        "Creating an easy ordering flow that supports UMKM operations while remaining simple and appealing for customers.",
       solution:
-        "Implemented doctor verification system, clear nutritional labeling, and personalized meal recommendations based on medical conditions.",
+        "Designed a mobile-first platform with digital menus, product discovery, cart, and order flows tailored to food UMKM.",
       year: "2024",
-      client: "Healthcare Startup",
+      client: "InmedFood",
     },
     {
       id: 7,
@@ -158,40 +159,6 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
         "Implemented gamification elements, personalized coaching, and gentle reminder systems with progress visualization.",
       year: "2024",
       client: "Wellness Startup",
-    },
-    {
-      id: 9,
-      title: "FinanceFlow",
-      category: "Fintech",
-      description:
-        "Personal finance management app with budgeting tools, expense tracking, and investment insights.",
-      image:
-        "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW5hbmNlJTIwYXBwJTIwZGVzaWdufGVufDF8fHx8MTc1ODE2MzA0MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Fintech", "Mobile", "Analytics"],
-      goal: "Simplify personal finance management for young professionals in emerging markets.",
-      challenge:
-        "Building trust in financial data handling while making complex financial concepts accessible.",
-      solution:
-        "Developed clear data security messaging, educational content integration, and simplified financial planning tools.",
-      year: "2023",
-      client: "FinanceFlow Ltd",
-    },
-    {
-      id: 10,
-      title: "Creative Studio Portfolio",
-      category: "Portfolio Website",
-      description:
-        "Interactive portfolio website for a creative agency showcasing their diverse project portfolio.",
-      image:
-        "https://images.unsplash.com/photo-1667984391983-8c35bea78bfe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHBvcnRmb2xpbyUyMHdlYnNpdGV8ZW58MXx8fHwxNzU4MTYzMDQyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      tags: ["Portfolio", "Creative", "Web"],
-      goal: "Create an immersive showcase that reflects the agency's creative capabilities and attracts premium clients.",
-      challenge:
-        "Balancing visual impact with fast loading times and ensuring the design doesn't overshadow the work itself.",
-      solution:
-        "Implemented progressive loading, interactive animations, and a clean gallery system with detailed case studies.",
-      year: "2023",
-      client: "Creative Agency",
     },
     {
       id: 11,
@@ -261,7 +228,24 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
       year: "2024",
       client: "StudyBuddy Team",
     },
-  ], []);
+    {
+      id: 15,
+      title: "Urbanmenphoto",
+      category: "Kiosk & Photobooth System",
+      description:
+        "A self-service web photobooth for capturing, editing, printing, and sharing event photos.",
+      image: PotoboxImage,
+      tags: ["Kiosk", "Photobooth", "Admin Dashboard"],
+      goal: "Digitalize the photobooth experience into a self-service web flow, from payment and photo capture to editing, printing, and sharing through a gallery link or QR code.",
+      challenge:
+        "Keeping a feature-rich kiosk flow fast and easy to understand while ensuring photo sessions, uploads, and booth operations remain reliable.",
+      solution:
+        "Designed a kiosk-first wizard with payment, capture, frame selection, editing, GIF creation, printing, and sharing, supported by an admin dashboard for sessions, payments, galleries, frames, reports, and recovery.",
+      year: "—",
+      client: "Urbanmenphoto",
+      liveUrl: "https://photo-box-dev.vercel.app/",
+    },
+  ].filter((project) => ![7, 8, 11, 12, 13, 14].includes(project.id)), []);
 
   const categories = useMemo(() => [
     "All",
@@ -341,30 +325,31 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-10"
+            style={{ marginBottom: '32px' }}
           >
-            <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-              <div className="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_auto] lg:items-center">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <div className="all-project-filters">
+              <div className="all-project-search-wrap">
+                <div className="all-project-search">
+                  <Search className="all-project-search-icon" />
                   <Input
                     type="text"
                     placeholder="Search projects..."
                     value={searchTerm}
                     onChange={handleSearchChange}
-                    className="pl-10 w-full rounded-xl border-gray-200 focus:border-[#ff6b35] focus:ring-[#ff6b35]/20"
+                    className="all-project-search-input"
                   />
                 </div>
+              </div>
 
-                <div className="flex flex-wrap gap-2 lg:justify-end">
+                <div className="all-project-category-list">
                   {categories.map((category) => (
                     <button
                       key={category}
                       onClick={() => handleCategorySelect(category)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      className={`all-project-category-button ${
                         selectedCategory === category
-                          ? "bg-[#ff6b35] text-white shadow-md shadow-[#ff6b35]/20"
-                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                          ? "is-active"
+                          : ""
                       }`}
                     >
                       {category}
@@ -372,33 +357,18 @@ export function AllProjects({ onBack, onViewCaseStudy }: AllProjectsProps) {
                   ))}
                 </div>
               </div>
-            </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mb-8"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-gray-600">
-              <p>
-                {filteredProjects.length} project
-                {filteredProjects.length !== 1 ? "s" : ""} found
-                {selectedCategory !== "All" && ` in ${selectedCategory}`}
-                {searchTerm && ` matching "${searchTerm}"`}
-              </p>
-
-              {(searchTerm || selectedCategory !== "All") && (
-                <button
-                  onClick={handleClearFilters}
-                  className="self-start sm:self-auto text-[#ff6b35] font-medium hover:underline"
-                >
-                  Clear filters
-                </button>
-              )}
+          {(searchTerm || selectedCategory !== "All") && (
+            <div className="mb-8 flex justify-end">
+              <button
+                onClick={handleClearFilters}
+                className="text-sm font-medium text-[#ff6b35] hover:underline"
+              >
+                Clear filters
+              </button>
             </div>
-          </motion.div>
+          )}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -36,7 +36,7 @@ export function Hero() {
             </h1>
 
             <h2 className="text-xl md:text-2xl text-gray-300 font-medium font-[Inter]">
-              UI UX & Front End Developer
+              UI UX & Full Stack Developer
             </h2>
           </motion.div>
 
